@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     private RecyclerView recyclerView;
     private ListView listView;
     private MyAdapter adapter;
-    private ArrayList<Mountains> items;
+    private ArrayList<Mountains> mountainsList = new ArrayList<>();
     private ArrayAdapter<Mountains> Myadapter;
     private final String JSON_URL = "HTTPS_URL_TO_JSON_DATA_CHANGE_THIS_URL";
     private final String JSON_FILE = "mountains.json";
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         new JsonFile(this, this).execute(JSON_FILE);
-        items = new ArrayList<>();
+
         adapter = new MyAdapter(); // getData() is a method that returns your data list
        // adapter = new ArrayAdapter<>(this, R.layout.listView_item,items);
         listView = findViewById(R.id.listView);
