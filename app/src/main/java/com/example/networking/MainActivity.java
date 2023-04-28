@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         listView = findViewById(R.id.listView);
         listView.setAdapter(Myadapter);
 
-
         recyclerView = findViewById(R.id.recyclerView);
         ListView listView = findViewById(R.id.listView);
         listView.setAdapter(Myadapter);
@@ -44,4 +43,4 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         Log.d("MainActivity", json);
     }
 
-}
+    }
