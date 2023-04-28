@@ -21,6 +21,7 @@ public class JsonFile {
         try (InputStream stream = activity.getAssets().open(file)) {
             Scanner scanner = new Scanner(stream).useDelimiter("\\A");
             listener.onPostExecute(scanner.hasNext() ? scanner.next() : "");
+          //  Mountains Mountains = new Mountains(name,location,height,imageURL);
         } catch (IOException exception) {
             Log.d("JsonFile", exception.getMessage());
         }
