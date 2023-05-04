@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         setContentView(R.layout.activity_main);
         new JsonFile(this, this).execute(JSON_FILE);
 
-        adapter = new MyAdapter(); // getData() is a method that returns your data list
+        adapter = new MyAdapter();
        // adapter = new ArrayAdapter<>(this, R.layout.listView_item,items);
         listView = findViewById(R.id.listView);
         listView.setAdapter(Myadapter);
