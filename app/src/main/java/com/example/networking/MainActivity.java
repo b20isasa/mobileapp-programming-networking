@@ -35,15 +35,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         new JsonFile(this, this).execute(JSON_FILE);*/
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         new JsonFile(this, this).execute(JSON_FILE);
-        recyclerView = findViewById(R.id.recyclerView);
-        adapter = new Myadapter(mountainsList);
-        //adapter = new ArrayAdapter<>(this, R.layout.listView_item,items);
-        listView = findViewById(R.id.listView);
-        listView.setAdapter(Myadapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        ListView listView = findViewById(R.id.listView);
-        listView.setAdapter(Myadapter);
     }
 
     @Override
