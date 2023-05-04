@@ -2,6 +2,9 @@ package com.example.networking;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,24 +14,36 @@ import java.util.ArrayList;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener {
-    private ArrayList<Mountains> mountainsList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private Myadapter adapter;
+    private ListView listView;
+    private  Myadapter adapter;
+    private ArrayList<Mountains> mountainsList = new ArrayList<>();
+    private ArrayAdapter<Mountains> Myadapter;
     private final String JSON_URL = "HTTPS_URL_TO_JSON_DATA_CHANGE_THIS_URL";
     private final String JSON_FILE = "mountains.json";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+       /* super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.recyclerView);
-        adapter = new Myadapter(mountainsList);
+       // adapter = new Myadapter(mountainsList);
         recyclerView.setAdapter(adapter);
         adapter = new Myadapter(mountainsList);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setLayoutManager((new LinearLayoutManager(this)));
+       // recyclerView.setLayoutManager((new LinearLayoutManager(this)));
+        new JsonFile(this, this).execute(JSON_FILE);*/
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
         new JsonFile(this, this).execute(JSON_FILE);
+        recyclerView = findViewById(R.id.recyclerView);
+        adapter = new Myadapter(mountainsList);
+        //adapter = new ArrayAdapter<>(this, R.layout.listView_item,items);
+        listView = findViewById(R.id.listView);
+        listView.setAdapter(Myadapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        ListView listView = findViewById(R.id.listView);
+        listView.setAdapter(Myadapter);
     }
 
     @Override
