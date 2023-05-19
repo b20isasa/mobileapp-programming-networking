@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     private RecyclerView recyclerView;
     private MyAdapter adapter;
     private final String JSON_URL = "https://mobprog.webug.se/json-api?login=brom";
-    //private final String JSON_FILE = "mountains.json";
+    private final String JSON_FILE = "mountains.json";
     private ArrayList<Mountains> mountainsList;
 
     @Override
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager((new LinearLayoutManager(this)));
-       // new JsonFile(this, this).execute(JSON_FILE);
+        new JsonFile(this, this).execute(JSON_FILE);
         mountainsList = new ArrayList<Mountains>();
         adapter = new MyAdapter(mountainsList);
     }
